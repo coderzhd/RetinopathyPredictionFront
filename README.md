@@ -3,7 +3,6 @@
 > 因为使用vite3，node版本需要 14.18+
 
 ```
-cd vue-manage-system    // 进入模板目录
 npm install         // 安装项目依赖，等待安装完成之后，安装失败可用 cnpm 或 yarn
 
 // 运行
@@ -18,8 +17,6 @@ npm run build
 ### vue-schart
 
 vue.js 封装 sChart.js 的图表组件。访问地址：[vue-schart](https://github.com/lin-xin/vue-schart#/) 
-
-<p><a href="https://www.npmjs.com/package/vue-schart"><img src="https://img.shields.io/npm/dm/vue-schart.svg" alt="Downloads"></a></p>
 
 ```html
 <template>
