@@ -12,6 +12,7 @@
             <el-upload
               v-model:file-list="fileList"
               action="http://localhost:3000/upload"
+              :data="userInfo.data"
               list-type="picture-card"
               :before-upload="checkImageSize"
               :on-preview="handlePictureCardPreview"
@@ -79,7 +80,7 @@
 </template>
 
 <script setup lang="ts" name="user">
-import { ref, computed } from "vue";
+import { ref, computed, reactive } from "vue";
 import "cropperjs/dist/cropper.css";
 import { Plus } from "@element-plus/icons-vue";
 import { ElMessage } from "element-plus";
@@ -93,6 +94,12 @@ const dialogImageUrl = ref("");
 const dialogVisible = ref(false);
 
 const tableData = ref([]);
+
+const userInfo = ref({
+  data: {
+    userId: localStorage.getItem("ms_username"),
+  },
+});
 
 // 分页导航
 const currentPage = ref(1); // 当前页数
@@ -185,7 +192,7 @@ const startAnalyse = () => {
     return;
   }
   const requestData = {
-    userId: localStorage.getItem("ms_keys"),
+    userId: localStorage.getItem("ms_username"),
     fileList: fileList.value,
   };
   axios({

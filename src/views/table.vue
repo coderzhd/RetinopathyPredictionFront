@@ -92,7 +92,7 @@ const Percent = (row: any) => {
 // 页面加载时获取列表数据
 const fecthData = () => {
   const requestData = {
-    userId: 1,
+    userId: localStorage.getItem("ms_username"),
   };
   axios({
     method: "get",
